@@ -28,4 +28,12 @@ public class EmployeeService {
     public List<Employee>findBySalary(int salary){
         return employeeRepository.findBySalaryLessThanEqual(salary);
     }
+
+    public Employee save(Employee employee){
+        return employeeRepository.save(employee);
+    }
+
+    public void delete(Employee employee){
+        employeeRepository.delete(employee);
+    }
 }

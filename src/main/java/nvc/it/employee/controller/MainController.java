@@ -31,29 +31,11 @@ public class MainController {
     public String index () {
         return "index";
     }
-       
-    @GetMapping("/employee")
-    public ModelAndView employee () {
-        List<Employee> employees = employeeService.findAll();
-        return new ModelAndView("employee","employees",employees);
-    }
 
     @GetMapping("/department")
     public ModelAndView getDepartments(){
         List<Department> departments = departmentRepository.findAll();
         return new ModelAndView("department", "departments", departments);
-    }
-
-    @GetMapping("/employee/name/{name}")
-    public ModelAndView getEmployeeByName(@PathVariable("name") String name){
-        List<Employee> employees = employeeService.findByName(name);
-        return new ModelAndView("employee", "employees",employees);
-    }
-
-    @GetMapping("/employee/salary/{salary}")
-    public ModelAndView getEmployeeBySalary (@PathVariable("salary")int salary){
-        List<Employee> employees = employeeService.findBySalary(salary);
-        return new ModelAndView("employee", "employees", employees);
     }
 
     @GetMapping("/project")
